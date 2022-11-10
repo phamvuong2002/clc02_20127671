@@ -11,4 +11,7 @@ router.get("/",authorController.getallAuthors);
 //get an author
 router.get("/:id_author",authorController.getanAuthor);
 
+//delete a author
+router.delete("/:id_author",authorController.deleteaAuthor);
+
 module.exports = router;

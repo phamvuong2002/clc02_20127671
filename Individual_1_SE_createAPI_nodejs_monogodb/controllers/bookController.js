@@ -43,6 +43,19 @@ const bookController = {
             res.status(500).json(err);
         }
     },
+    //delete a book
+    deleteABook : async (req,res) => {
+        try{
+            await Author.updateMany(
+                {books: req.params.id_book},
+                {$pull: {books: req.params.id_book}}
+            );
+            await Book.findByIdAndDelete(req.params.id_book);
+            res.status(200).json("Deleted Successfully!");
+        }catch(err){
+            res.status(500).json(err);
+        }
+    }
 };
 
 module.exports = bookController;
