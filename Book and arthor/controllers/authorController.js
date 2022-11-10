@@ -32,8 +32,8 @@ const authorController = { // controller for Author
     //delete a author
     deleteaAuthor : async(req,res)=>{
         try{
-            // continue here........
-            const author = await Author.findById(req.params.id_author).populate("books");
+            
+            await Book.updateMany({author: req.params.id_author}, {author:null})
             await Author.findByIdAndDelete(req.params.id_author);
         }catch(err){
             res.status(500).json(err);
