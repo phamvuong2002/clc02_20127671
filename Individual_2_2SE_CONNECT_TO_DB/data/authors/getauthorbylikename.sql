@@ -1,0 +1,1 @@
+EXEC [dbo].[getAuthorsByLikeName] @likename
